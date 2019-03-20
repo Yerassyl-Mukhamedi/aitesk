@@ -1,0 +1,15 @@
+{
+  "name": "mysite",
+  "version": "1.0.0",
+  "description": "packahes",
+  "main": "index.js",
+  "dependencies": {
+    "less": "^3.9.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC"
+}
