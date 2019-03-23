@@ -1,0 +1,78 @@
+{% extends 'polls/base.html' %}
+{% load static %}
+{% block title %}
+    {% if category %}{{ category.name }} {% else %} Products {% endif %}
+{% endblock %}
+
+{% block content %}
+
+  <div class="list-header">
+    <div class="top">
+      <div class="title">Каталог товаров</div>
+    </div>
+    <div class="bottom" style="background-image: url('/media/img/static/list-back.png')">
+      <div class="row align-items-center">
+          <div class="col-md-7">
+              
+              {% for c in main_category %}
+                {% if c.parent != None %}
+                  <div class="text">{{ c.parent }}</div>
+                  {% else %}
+                  <div class="text">{{ c.name }}</div>
+                {% endif %}  
+              {% endfor %}
+          </div>
+          <div class="col-md-5">
+              <div class="row">
+                  <img src="/media/img/static/manager.png" class="manager">
+                  <div>
+                      <div class="sub">Есть вопросы? Оставьте заявку на звонок менеджера и мы обязательно свяжемся с вами.</div>
+                      <button class="global">Заказть звонок</button>
+                  </div>
+              </div>
+          </div>
+      </div>
+    </div>
+  </div>
+
+    <div class="list-content">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-4">
+              <div class="sub-cat-list">
+                  {% for c in categories %}
+                      {% if c.parent.id == 1 %}
+                        <li {% if category.slug == c.slug %} class="active"{% endif %}>
+                            <a href="{{ c.get_absolute_url }}">{{ c.name }}</a>
+                        </li>
+                      {% endif %}
+                  {% endfor %}
+              </div>
+          </div>
+          <div class="col-md-8">
+            <div class="product-list">
+
+                {% for c in main_category %}
+                  <div class="title">{{ c.name }}</div>
+                {% endfor %}
+              <div class="row">
+                {% for product in products %}
+                  <div class="col-md-4">
+                    <div class="item">
+                      <div class="wrap">
+                        <img src="{{ product.image.url }}">
+                      </div>
+                      <a href="{{ product.get_absolute_url }}"><div class="description">{{ product.description }}</div></a> 
+                      <div class="price">{{ product.price }} т</div>
+                      <a href="{{ product.get_absolute_url }}"><button class="global">Заказать сейчас</button></a>
+                    </div>
+                  </div>
+                {% endfor %}
+
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+{% endblock %}

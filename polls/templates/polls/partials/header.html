@@ -1,1 +1,70 @@
-asdasdasdasd
+<div class="header">
+
+    <div class="slide-titan">
+        <div class="slide-closer"></div>
+        <div class="menu">
+            <img src="/media/img/static/menu-img.png" class="menu-img">
+            <div class="title">Aitesk ltd</div>
+            <div class="closer">
+                <img src="/media/img/static/krest.png" class="krest">
+                <p>Закрыть</p>
+            </div>
+            <div class="wrapper">
+                <div class="row justify-content-between">
+                    <div class="col-md-3">
+                        <div class="list">
+                            <a href="#"><p>О компании</p></a>
+                            <a href="#"><p>Катлог товаров</p></a>
+                            <a href="#"><p>Связаться с нами</p></a>
+                            <a href="#"><p>Вакансии</p></a>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="list">
+                            <a href="#"><p>Продукция для медножильных сетей</p></a>
+                            <a href="#"><p>Продукция для оптических сетей</p></a>
+                            <a href="#"><p>Продукция инженерной инфраструктуры</p></a>
+                            <a href="#"><p>Инструменты</p></a>
+                            <a href="#"><p>Цифровые АТС</p></a>
+                            <a href="#"><p>Сувенирная продукция</p></a>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                                        
+                    {% if menu_list %}
+                        {% for product in menu_list %}
+                        <div class="offer">
+                            <img src="{{ product.image.url }}">
+                            <div class="description">{{ product.description }}</div>
+                            <div class="price">{{ product.price }} т</div>
+                             <a href="{{ product.get_absolute_url }}"><button class="global">Заказать сейчас</button></a>
+                        </div>
+                        {% endfor %}
+                    {% endif %}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="content">
+        <div class="row justify-content-between">
+            <div class="row align-items-center">
+                
+                <img src="/media/img/static/logo.png" class="logo">
+                <div class="phone">
+                    <img src="/media/img/static/phone.png">
+                    <a href="tel:+77272463671">+7 727 <span> 246 36 71</span></a>
+                </div>
+            </div>
+            <div class="nav">
+                <img src="/media/img/static/nav-back.png" class="nav-back">
+                <div id="nav-icon3">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

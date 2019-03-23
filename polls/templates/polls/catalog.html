@@ -1,0 +1,130 @@
+{% extends "polls/base.html" %}
+
+
+
+{% block content %}
+
+<div class="catalog-header">
+    <div class="container">
+
+        <div class="row justify-content-between align-items-center">
+            <div class="col-md-7">
+                <div class="title">Каталог товаров</div>
+                <div class="text">ТОО "Aitesk Ltd" реализует широкий ассортимент товаров: волоконно-оптические усилители, мультиплексоры, платы расширения и модернизации для цифровых АТС М- 200, соединительные модули, кабели, термоусаживаемые манжетные муфты, герметизирующие электроизоляционные ленты, арморкасты, гели, асбестоцементные трубы и муфты, чугунные и полимерно-песчаные армированные люки смотровых колодцев с запорными устройствами, коды (камеры оперативного доступа), и много другой продукции.</div>
+            </div>
+            <div class="col-md-5">
+                <div class="row">
+                    <img src="/media/img/static/manager.png" class="manager">
+                    <div>
+                        <div class="sub">Есть вопросы? Оставьте заявку на звонок менеджера и мы обязательно свяжемся с вами.</div>
+                        <button class="global">Заказть звонок</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="catalog-content">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-4">
+                <a href="../cat1">
+                    <div class="category">
+                        <div class="name">Продукция для медножильных сетей</div>
+                        <img src="/media/img/static/cat1.png">
+                    </div>
+                </a>
+            </div>
+            <div class="col-md-4">
+                <a href="../cat2">
+                    <div class="category">
+                        <div class="name">Продукция для оптических сетей</div>
+                        <img src="/media/img/static/cat2.png">
+                    </div>
+                </a>
+            </div>
+            <div class="col-md-4">
+                <a href="../cat3">
+                    <div class="category">
+                        <div class="name">Продукция инженерной инфраструктуры</div>
+                        <img src="/media/img/static/cat3.png">
+                    </div>
+                </a>
+            </div>
+            <div class="col-md-4">
+                <a href="../cat4">
+                    <div class="category">
+                        <div class="name">Инструменты</div>
+                        <img src="/media/img/static/cat4.png">
+                    </div>
+                </a>
+            </div>
+            <div class="col-md-4">
+                <a href="../cat5">
+                    <div class="category">
+                        <div class="name">Цифровые АТС</div>
+                        <img src="/media/img/static/cat5.png">
+                    </div>
+                </a>
+            </div>
+            <div class="col-md-4">
+                <a href="../cat6">
+                    <div class="category">
+                        <div class="name">Сувенирная продукция</div>
+                        <img src="/media/img/static/cat6.png">
+                    </div>
+                </a>
+            </div>
+        </div>
+        <div class="our">
+            <div class="bold-title">Мы предлагаем только проверенный товар лучших мировх производителей</div>
+            <div class="title">Наши клиенты</div>
+            <div class="list">
+                <img src="/media/img/static/our1.png">
+                <img src="/media/img/static/our2.png">
+                <img src="/media/img/static/our3.png">
+                <img src="/media/img/static/our4.png">
+                <img src="/media/img/static/our5.png">
+            </div>
+        </div>
+
+        <div class="offer">
+            <div class="title">Лучие предложения</div>
+            <div class="row">
+
+                {% if best_offer %}
+                    {% for offer in best_offer %}
+                        <div class="col-md-3">
+                            <div class="item">
+                                <div class="wrap">
+                                    <img src="{{ offer.image.url }}">
+                                </div>
+                                <div class="name">{{ offer.description }}</div>
+                                <div class="price">{{ offer.price }} т</div>
+                                <a href="{{offer.get_absolute_url}}"><button class="global">Заказать сейчас</button></a> 
+                            </div>
+                        </div>
+                    {% endfor %}
+                {% endif %}
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- <div class="col-sm-3 col-sm-offset-1 blog-sidebar">
+    <div class="sidebar-module">
+        <h4>Categories</h4>
+        <ol class="list-unstyled">
+        <li {% if not category %} class="active"{% endif %}><a href="{% url 'polls:product_list' %}">All</a></li>
+        {% for c in categories %}
+
+        <li {% if category.slug == c.slug %} class="active"{% endif %}>
+            <a href="{{ c.get_absolute_url }}">{{ c.name }}</a>
+        </li>
+        {% endfor %}
+        </ol>
+    </div>
+</div> -->
+
+
+{% endblock %}

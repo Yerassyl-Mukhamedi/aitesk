@@ -3,19 +3,168 @@
 
 
 {% block content %}
-    {% if latest_product_list %}
-        <ul>
-        {% for product in latest_product_list %}
-            <li><a href="/polls/{{ product.id }}/">{{ product.product_name }}</a></li>
-            {{ product.id }}
-            <img src="{{ product.product_image.url }}" alt="">
-            
 
-            
-        {% endfor %}
-        </ul>
-    {% else %}
-        <p>No polls are available.</p>
-    {% endif %}
+    <div class="index">
+
+        <img src="/media/img/static/back-main.png" class="back-main">
+        <div class="container">
+            <div class="content">
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="left">
+                            <div class="title">Aitesk ltd</div>
+                            <div class="sub">Решения которые работают на вас 24 часа!</div>
+                            <a href="#">Подробнее о нас</a>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="right">
+                            <div class="form">
+                                <div class="title">Cетевое и телекоммуникационное оборудование от ведущих мировых производителей</div>
+                                <input type="text" placeholder="Номер телефона">
+                                <button class="global">Отправить заявку</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bar">
+                    <div class="row">
+                        <div class="col-md-3">
+                            <div class="item">
+                                <img src="/media/img/static/bar1.png" alt="">
+                                <div class="name">Медножильные сети</div>
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="item">
+                                <img src="/media/img/static/bar2.png" alt="">
+                                <div class="name">Оптические <br> сети</div>
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="item">
+                                <img src="/media/img/static/bar3.png" alt="">
+                                <div class="name">Инженерная инфраструктура</div>
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="item">
+                                <img src="/media/img/static/bar4.png" alt="">
+                            <div class="name">Цифровые <br> АТС</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                {% if products_list %}
+                <div class="offer">
+                    <div class="title">Лучшие предложения</div>
+                    <div class="row">
+
+                        {% for product in products_list %}
+                        <div class="col-md-6">
+                            <div class="item">
+                                <div class="row">
+                                    <div class="col-6">
+                                        <img src=" {{ product.image.url }}">
+                                    </div>
+                                    <div class="col-6">
+                                        
+                                        <div class="item-content">
+                                            <a href="{{ product.get_absolute_url }}" class="product-name">{{ product.name }}</a>
+                                            <div class="description">{{ product.description }}</div>
+                                            <div class="price">{{ product.price }}</div>
+                                            <a href="{{ product.get_absolute_url }}"><button class="global">Заказать сейчас</button></a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        {% endfor %}
+
+                    </div>
+                </div>
+                {% endif %}
+
+
+                <div class="why">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="title">Почему выбирают нас?</div>
+                            <div class="texts">
+                                <img src="/media/img/static/why1.png">
+                                <p>ТОО "Aitesk Ltd" работает на рынке Казахстана уже многие годы, и специализируются на поставке сетевого и телекоммуникационного оборудования, аксессуаров от ведущих мировых и отечественных производителей на территории Казахстана. </p>
+                            </div>
+                            <div class="texts">
+                                <img src="/media/img/static/why2.png">
+                                <p>ТОО "Aitesk Ltd" работает на рынке Казахстана уже многие годы, и специализируются на поставке сетевого и телекоммуникационного оборудования, аксессуаров от ведущих мировых и отечественных производителей на территории Казахстана. </p>
+                            </div>
+                            <div class="texts">
+                                <img src="/media/img/static/why3.png">
+                                <p>ТОО "Aitesk Ltd" работает на рынке Казахстана уже многие годы, и специализируются на поставке сетевого и телекоммуникационного оборудования, аксессуаров от ведущих мировых и отечественных производителей на территории Казахстана. </p>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <img src="/media/img/static/why4.png" class="why4">
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="business">
+                    <div class="row">
+                        <div class="col-md-4">
+                            <img src="/media/img/static/business1.png" class="business1">
+                        </div>
+                        <div class="col-md-8">
+                            <div class="title">Aitesk ltd предлагает лучшие решения для Вашего бизнеса!</div>
+                            <div class="mt-4 row align-items-center">
+                                <div class="text">ТОО "Aitesk Ltd" работает на рынке Казахстана уже многие годы, и специализируются на поставке сетевого и телекоммуникационного оборудования, аксессуаров от ведущих мировых и отечественных производителей на территории Казахстана. </div>
+                                <button class="global">Отправить заявку</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="our">
+                        <div class="title">Наши клиенты</div>
+                        <div class="list">
+                            <img src="/media/img/static/our1.png">
+                            <img src="/media/img/static/our2.png">
+                            <img src="/media/img/static/our3.png">
+                            <img src="/media/img/static/our4.png">
+                            <img src="/media/img/static/our5.png">
+                        </div>
+                        <div class="title">Наши клиенты</div>
+                        <div class="list">
+                            <img src="/media/img/static/our6.png">
+                            <img src="/media/img/static/our7.png">
+                            <img src="/media/img/static/our8.png">
+                            <img src="/media/img/static/our9.png">
+                            <img src="/media/img/static/our10.png">
+                        </div>
+                    </div>
+                </div>
+
+
+        <div class="col-sm-3 col-sm-offset-1 blog-sidebar">
+                <div class="sidebar-module">
+                  <h4>Categories</h4>
+                  <ol class="list-unstyled">
+                    <li {% if not category %} class="active"{% endif %}><a href="{% url 'polls:product_list' %}">All</a></li>
+                  {% for c in categories %}
+      
+                    <li {% if category.slug == c.slug %} class="active"{% endif %}>
+                        <a href="{{ c.get_absolute_url }}">{{ c.name }}</a>
+                    </li>
+                  {% endfor %}
+                  </ol>
+                </div>
+              </div><!-- /.blog-sidebar -->
+            </div>
+        </div>
+    </div>
 {% endblock %}
+
+
+
 

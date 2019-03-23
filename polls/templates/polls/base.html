@@ -1,26 +1,17 @@
 <!DOCTYPE html>
+{% load staticfiles %}
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
-    {% load static %}
-
-    <link rel="stylesheet" href="{% static 'polls/css/style.less'%}" />
-
+    
+{% include 'polls/partials/head.html' %}
 </head>
 <body>
 
+{% include 'polls/partials/header.html' %}
+{% block content %}
 
-    {% include "polls/partials/header.html" %}
-    
-    <div class="content">
-        {% block content %}
-        {% endblock %}
-    </div>
+{% endblock %}
 
-
-    {% include "polls/partials/footer.html" %}
+{% include 'polls/partials/footer.html' %}
 </body>
 </html>
