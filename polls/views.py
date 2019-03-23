@@ -8,7 +8,7 @@ def index(request, category_slug=None):
     categories = Category.objects.all()
     products = Product.objects.filter(available=True)
     products_list = Product.objects.order_by('category')[:2]
-    menu_list = Product.objects.order_by('category')[:1]
+    menu_list = Product.objects.order_by('?')[:1]
     if category_slug:
         category = get_object_or_404(Category, slug=category_slug)
         products = Product.objects.filter(category=category)
@@ -26,7 +26,8 @@ def product_list(request, category_slug):
     category = None
     main_category = Category.objects.filter(parent=None)
     products = Product.objects.filter(available=True)
-    categories = Category.objects.filter( sub_category = True )
+    categories = Category.objects.filter( sub_category = True)
+    menu_list = Product.objects.order_by('?')[:1]
 
     if category_slug:
         category = get_object_or_404(Category, slug=category_slug)
@@ -38,14 +39,21 @@ def product_list(request, category_slug):
         'categories': categories,
         'products': products,
         'main_category': main_category,
+        'menu_list' : menu_list,
     }
     return render(request, 'polls/product/list.html', context)
 
 
 def product_detail(request, id, slug):
     product = get_object_or_404(Product, id=id, slug=slug, available=True)
+    
+    best_offer = Product.objects.all()
+    menu_list = Product.objects.order_by('?')[:1]
+
     context = {
-        'product': product
+        'product': product,
+        'best_offer' : best_offer,
+        'menu_list' : menu_list,
     }
     return render(request, 'polls/product/detail.html', context)
 
@@ -54,7 +62,7 @@ def product_detail(request, id, slug):
 def catalog(request, category_slug=None):
     category = None
     categories = Category.objects.all()
-    menu_list = Product.objects.order_by('category')[:1]
+    menu_list = Product.objects.order_by('?')[:1]
     best_offer = Product.objects.order_by('?')[:4]
 
     if category_slug:

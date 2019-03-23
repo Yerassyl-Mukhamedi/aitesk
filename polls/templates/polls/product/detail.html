@@ -1,14 +1,113 @@
-
-{% include 'polls/partials/head.html' %}
-
-<div class="container">
-
-    <div class="pt-5 mt-5 amount">1</div>
-</div>
+{% extends "polls/base.html" %}
 
 
-<script>
 
-</script>
+{% block content %}
+
+    <div class="detail-header">
+        <div class="container">
+            <div class="row justify-content-between">
+                <div class="col-md-7">
+                    <div class="title">Каталог товаров</div>
+                    <div class="text">{{ product.category.parent }} / {{ product.category }}</div>
+                </div>
+                <div class="col-md-5">
+                    <div class="row">
+                        <img src="/media/img/static/manager.png" class="manager">
+                        <div>
+                            <div class="sub">Есть вопросы? Оставьте заявку на звонок менеджера и мы обязательно свяжемся с вами.</div>
+                            <button class="global">Заказть звонок</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="detail-content">
+        <div class="container">
+            <div class="top-content">
+                <div class="row justify-content-between">
+                    <div class="col-md-6">
+                        <div class="left">
+                            <div class="name">{{ product.name }}</div>
+                            <div class="lower">
+                                <div class="price">{{ product.price }} т</div>
+                                <button class="global">Сделать заказ</button>
+                            </div>
+
+                            <div class="description">
+                                <div class="title">Описание</div>
+                                <div class="text">{{ product.description }}</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="right">
+                            <div class="wrap">
+                                <img src="{{ product.image.url }}">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="mid-content">
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="left">
+                            <div class="title">Технические характеристики</div>
+                            <div class="sub-title">Общие характеристики</div>
+                            <div class="text">{{ product.specification1|linebreaks }}</div>
+                            <div class="sub-title">Программирование</div>
+                            <div class="text">{{ product.specification2|linebreaks }}</div>
+                            <div class="sub-title">Дополнительная функциональность</div>
+                            <div class="text">{{ product.specification3|linebreaks }}</div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="right">
+                            <div class="title">Применение</div>
+                            <div class="text">Оптическая полка предназначена для использования в волоконно-оптических и комбинированных системах передачи информации для обеспечения соединений между входящими волоконно-оптическими кабелями и волоконно-оптическим оборудованием, а также для механической защиты соединений. </div>
+                            
+                            <div class="gid">
+                                <img src="/media/img/static/pdf.png">
+                                <p>Технические спецификация</p>
+                            </div>
+                            <div class="gid">
+                                <img src="/media/img/static/pdf.png">
+                                <p>Руководство по эксплуатации</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        <div class="offer">
+                <div class="title">Лучие предложения</div>
+                <div class="row">
+
+                        {% if best_offer %}
+                            {% for offer in best_offer %}
+                                {% if offer.category.parent.id == product.category.parent.id %}
+                                    <div class="col-md-3">
+                                        <div class="item">
+                                            <div class="wrap">
+                                                <img src="{{ offer.image.url }}">
+                                            </div>
+                                            {{ offer.category.parent.id }}
+                                            <div class="name">{{ offer.description }}</div>
+                                            <div class="price">{{ offer.price }} т</div>
+                                            <a href="{{offer.get_absolute_url}}"><button class="global">Заказать сейчас</button></a> 
+                                        </div>
+                                    </div>
+                                {% endif %}
+                            {% endfor %}
+                        {% endif %}
+                </div>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}
 
 

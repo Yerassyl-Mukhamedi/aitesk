@@ -20,4 +20,13 @@ $(document).ready(function() {
 	// 	current_period = current_period + 1;
 	// 	console.log('Year ' + i + ' amount ' + txt);
 	// }
+	$('.katalog-definer').click(function() {
+		localStorage.setItem('katalog-id', this.id);
+		document.getElementById('result').innerHTML = localStorage.getItem('katalog-id');
+		console.log(localStorage.getItem('katalog-id'));
+	});
+
+	$('.katalog').removeClass('active');
+	var current = localStorage.getItem('katalog-id');
+	$('.katalog' + current).addClass('active');
 });

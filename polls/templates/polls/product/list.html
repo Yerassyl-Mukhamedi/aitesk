@@ -4,6 +4,11 @@
     {% if category %}{{ category.name }} {% else %} Products {% endif %}
 {% endblock %}
 
+<script>
+  $(document).ready(function() {
+		console.log(curent);
+  });
+</script>
 {% block content %}
 
   <div class="list-header">
@@ -37,29 +42,56 @@
           <div class="col-md-4">
               <div class="sub-cat-list">
                   {% for c in categories %}
-                  {{ c.slug }} <br> {{ c.parent }} <br>
-
-                  <!-- {% if request.get_full_path == "/polls/cat1/" or c.parent.id == 1%}
-                        <li id="{{ c.parent.id }}" {% if category.slug == c.slug %} class="active"{% endif %} {% if c.parent.id == 1 %} style="display: block;" {% endif %}>
-                            <a href="{{ c.get_absolute_url }}">{{ c.name }}</a>
-                        </li>
+                    {% if c.parent.id == 1%}
+                      <div class="katalog katalog1">
+                        <a href="{{ c.get_absolute_url }}">
+                          <div id="{{ c.parent.id }}" {% if category.slug == c.slug %} class="active li" {% else %} class="li" {% endif %}>
+                            {{ c.name }}
+                          </div>
+                        </a>
+                      </div>
+                    {% elif c.parent.id == 16%}
+                      <div class="katalog katalog16">
+                        <a href="{{ c.get_absolute_url }}">
+                          <div id="{{ c.parent.id }}" {% if category.slug == c.slug %} class="active li" {% else %} class="li" {% endif %}>
+                            {{ c.name }}
+                          </div>
+                        </a>
+                      </div>  
+                    {% elif c.parent.id == 17%}
+                      <div class="katalog katalog17">
+                        <a href="{{ c.get_absolute_url }}">
+                          <div id="{{ c.parent.id }}" {% if category.slug == c.slug %} class="active li" {% else %} class="li" {% endif %}>
+                            {{ c.name }}
+                          </div>
+                        </a>
+                      </div>  
+                    {% elif c.parent.id == 21%}
+                      <div class="katalog katalog21">
+                        <a href="{{ c.get_absolute_url }}">
+                          <div id="{{ c.parent.id }}" {% if category.slug == c.slug %} class="active li" {% else %} class="li" {% endif %}>
+                            {{ c.name }}
+                          </div>
+                        </a>
+                      </div>  
+                    {% elif c.parent.id == 22%}
+                      <div class="katalog katalog22">
+                        <a href="{{ c.get_absolute_url }}">
+                          <div id="{{ c.parent.id }}" {% if category.slug == c.slug %} class="active li" {% else %} class="li" {% endif %}>
+                            {{ c.name }}
+                          </div>
+                        </a>
+                      </div>  
+                    {% elif c.parent.id == 23%}
+                      <div class="katalog katalog23">
+                        <a href="{{ c.get_absolute_url }}">
+                          <div id="{{ c.parent.id }}" {% if category.slug == c.slug %} class="active li" {% else %} class="li" {% endif %}>
+                            {{ c.name }}
+                          </div>
+                        </a>
+                      </div>  
                     {% endif %}
-                    {% if request.get_full_path == "/polls/cat2/" or c.parent.id == 2%}
-                        <li id="{{ c.parent.id }}" {% if category.slug == c.slug %} class="active"{% endif %} {% if c.parent.id == 2 %} style="display: block;" {% endif %}>
-                            <a href="{{ c.get_absolute_url }}">{{ c.name }}</a>
-                        </li>
-                    {% endif %} -->
                   {% endfor %}
-<!-- 
-                  {% if request.get_full_path == "/polls/cat2/" or c.parent.id == 2 %}
-                    {% for c in categories %}
-                      {% if c.parent.id == 2 %}
-                      <li {% if category.slug == c.slug %} class="active"{% endif %}>
-                        <a href="{{ c.get_absolute_url }}">{{ c.name }}</a>
-                      </li>
-                      {% endif %}
-                    {% endfor %}
-                  {% endif %} -->
               </div>
           </div>
           <div class="col-md-8">
