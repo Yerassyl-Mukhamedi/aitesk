@@ -19,11 +19,14 @@
                     </div>
                     <div class="col-md-6">
                         <div class="right">
-                            <div class="form">
+
+                            <form action="/polls/forms/" method="POST" class="form">
+                                {% csrf_token %}
                                 <div class="title">Cетевое и телекоммуникационное оборудование от ведущих мировых производителей</div>
-                                <input type="text" placeholder="Номер телефона">
-                                <button class="global">Отправить заявку</button>
-                            </div>
+                                <input type="text" name="phone_number" placeholder="Номер телефона" required>
+                                <button class="global" type="submit">Отправить заявку</button>
+                            </form>
+
                         </div>
                     </div>
                 </div>

@@ -1,0 +1,86 @@
+{% extends "polls/base.html" %}
+
+
+
+{% block content %}
+
+<div class="contact-header">
+    <div class="row justify-content-between align-items-center">
+        <div class="col-md-7">
+            <div class="title">Связаться с нами</div>
+        </div>
+        <div class="col-md-5">
+            <div class="row">
+                <img src="/media/img/static/manager.png" class="manager">
+                <div>
+                    <div class="sub">Есть вопросы? Оставьте заявку на звонок менеджера и мы обязательно свяжемся с вами.</div>
+                    <button class="global">Заказть звонок</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="contact-content">
+    <div class="mid">
+        <div class="row">
+            <div class="col-md-5">
+                <div class="left">
+                    <img src="/media/img/static/contact1.png" class="contact1">
+
+                    <div class="items">
+                        <div class="item">
+                            <p>Наш адрес</p>
+                            <div>Алматы, ул. Чурина 3, оф. 5</div>
+                        </div>
+                        <div class="item">
+                            <p>Телефона</p>
+                            <a href="tel:+77272463671"><div>+7 (727) 246 36 71</div></a> 
+                            <a href="tel:+77080360838"><div>+7 (708) 036 08 38</div></a> 
+                        </div>
+                        <div class="item">
+                            <p>Электронный адрес</p>
+                            <a href="mailto:office@aitesk.kz"><div>office@aitesk.kz</div></a> 
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-7">
+                <div id="map"></div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="bottom">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="title">Реквизиты компании</div>
+                    <p>
+                        TOO "Aitesk ltd",<br><br>
+                        БИН 150240003972,<br><br>
+                        050061, г. Алматы, ул. Чурина,  д.3, оф. 5, 
+                        <br><br>
+                        ИИК: KZ2896502F0008530784 в АО "ForteBank", БИК IRTYKZKA, Кбе 17,
+                        <br><br>
+                        НДС серия 60001, № 0074671, дата выдачи 3 марта 2015 г.
+                        <br><br>
+                        т. +7 (727) 246-36-71, Email: office@aitesk.kz
+                    </p>
+                </div>
+                <div class="col-md-6">
+                    <div class="title">Написать нам</div>
+                    <form method="post">
+                        {% csrf_token %}
+                        {{ form.as_p }}
+                        <button class="global" type="submit" value = "Submit">Написать нам</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}
+
+

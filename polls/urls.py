@@ -1,6 +1,8 @@
 from django.conf.urls import url
 from django.urls import path
 
+
+
 from . import views
 
 app_name = 'polls'
@@ -8,7 +10,11 @@ app_name = 'polls'
 urlpatterns = [
     path('', views.index, name='index'),
     path('catalog/', views.catalog, name='catalog'),
+    path('contact/', views.contact, name='contact'),
+    path('about/', views.about, name='about'),
     url(r'^$', views.product_list, name='product_list'),
-    url(r'^(?P<category_slug>[-\w]+)/$', views.product_list, name='product_list_by_category'),
-    url(r'^(?P<id>\d+)/(?P<slug>[-\w]+)/$', views.product_detail, name='product_detail'),
+    path('<int:id>/<slug:slug>/', views.product_detail, name='product_detail'),
+    path('<slug:category_slug>/', views.product_list, name='product_list_by_category'),
+
 ]
+

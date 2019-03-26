@@ -25,7 +25,7 @@ SECRET_KEY = 'g195jkeve$lg76-lfqalhabu4ip!x-jki62a41eo^$e-sr#@fs'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['webtestingarea.pythonanywhere.com']
+ALLOWED_HOSTS = []
 
 
 # Application definition
@@ -120,3 +120,18 @@ STATIC_URL = '/static/'
 
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 MEDIA_URL = '/media/'
+
+
+
+
+
+
+
+EMAIL_BACKEND ='django.core.mail.backends.smtp.EmailBackend'
+EMAIL_USE_TLS = True 
+EMAIL_HOST = 'smtp.gmail.com' 
+EMAIL_PORT = 587 
+EMAIL_HOST_USER = 'oinf305@gmail.com' 
+EMAIL_HOST_PASSWORD = 'accountpassword' 
+DEFAULT_FROM_EMAIL = 'oinf305@gmail.com'
+SERVER_EMAIL = 'oinf305@gmail.com'

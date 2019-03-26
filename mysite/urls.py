@@ -6,8 +6,11 @@ from django.contrib.staticfiles.urls import static
 from django.contrib.staticfiles.urls import staticfiles_urlpatterns
 
 urlpatterns = [
-    path('polls/', include('polls.urls')),
     path('admin/', admin.site.urls),
+    path('', include('polls.urls')),
+    path('about/', include('polls.urls')),
+    path('contact/', include('polls.urls')),
+    path('catalog/', include('polls.urls')),
 ]
 
  

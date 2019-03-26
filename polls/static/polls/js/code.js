@@ -29,4 +29,15 @@ $(document).ready(function() {
 	$('.katalog').removeClass('active');
 	var current = localStorage.getItem('katalog-id');
 	$('.katalog' + current).addClass('active');
+
+	var map;
+
+	DG.then(function() {
+		map = DG.map('map', {
+			center: [ 43.25, 76.86 ],
+			zoom: 14
+		});
+
+		DG.marker([ 43.25, 76.86 ]).addTo(map);
+	});
 });
