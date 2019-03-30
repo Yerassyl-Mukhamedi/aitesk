@@ -5,7 +5,6 @@
 {% block content %}
 
     <div class="detail-header">
-        <div class="container">
             <div class="row justify-content-between">
                 <div class="col-md-7">
                     <div class="title">Каталог товаров</div>
@@ -21,7 +20,6 @@
                     </div>
                 </div>
             </div>
-        </div>
     </div>
 
     <div class="detail-content">
@@ -55,28 +53,41 @@
                 <div class="row">
                     <div class="col-md-6">
                         <div class="left">
-                            <div class="title">Технические характеристики</div>
-                            <div class="sub-title">Общие характеристики</div>
-                            <div class="text">{{ product.specification1|linebreaks }}</div>
-                            <div class="sub-title">Программирование</div>
-                            <div class="text">{{ product.specification2|linebreaks }}</div>
-                            <div class="sub-title">Дополнительная функциональность</div>
-                            <div class="text">{{ product.specification3|linebreaks }}</div>
+                            {% if product.specification1 or product.specification2 or product.specification3 %}
+                                <div class="title">Технические характеристики</div>
+                                {% if product.specification1 %}
+                                    <div class="sub-title">Общие характеристики</div>
+                                    <div class="text">{{ product.specification1|linebreaks }}</div>
+                                {% endif %}
+                                {% if product.specification2 %}
+                                    <div class="sub-title">Программирование</div>
+                                    <div class="text">{{ product.specification2|linebreaks }}</div>
+                                {% endif %}
+                                {% if product.specification3 %}
+                                    <div class="sub-title">Дополнительная функциональность</div>
+                                    <div class="text">{{ product.specification3|linebreaks }}</div>
+                                {% endif %}
+                            {% endif %}
                         </div>
                     </div>
                     <div class="col-md-6">
                         <div class="right">
                             <div class="title">Применение</div>
                             <div class="text">Оптическая полка предназначена для использования в волоконно-оптических и комбинированных системах передачи информации для обеспечения соединений между входящими волоконно-оптическими кабелями и волоконно-оптическим оборудованием, а также для механической защиты соединений. </div>
-                            
-                            <div class="gid">
-                                <img src="/media/img/static/pdf.png">
-                                <p>Технические спецификация</p>
-                            </div>
-                            <div class="gid">
-                                <img src="/media/img/static/pdf.png">
-                                <p>Руководство по эксплуатации</p>
-                            </div>
+                            {% if product.pdf %}
+                                <a href="{{ product.pdf.url }}" target="_blank" rel="noopener noreferrer" >
+                                    <div class="gid">
+                                        <img src="/media/img/static/pdf.png">
+                                        <p>Технические спецификация</p>
+                                    </div>
+                                </a>
+                                <a href="{{ product.pdf.url }}" target="_blank" rel="noopener noreferrer" >
+                                    <div class="gid">
+                                        <img src="/media/img/static/pdf.png">
+                                        <p>Руководство по эксплуатации</p>
+                                    </div>
+                                </a>
+                            {% endif %}
                         </div>
                     </div>
                 </div>
@@ -94,7 +105,8 @@
                                             <div class="wrap">
                                                 <img src="{{ offer.image.url }}">
                                             </div>
-                                            <div class="name">{{ offer.description }}</div>
+                                            <div class="name">{{ offer.name }}</div>
+                                            <div class="description">{{ offer.description }}</div>
                                             <div class="price">{{ offer.price }} т</div>
                                             <a href="{{offer.get_absolute_url}}"><button class="global">Заказать сейчас</button></a> 
                                         </div>

@@ -7,6 +7,13 @@
 	/* Путь к файлу со шрифтом */
 }
 
+@font-face {
+	font-family: 'avenir-bold';
+	/* Имя шрифта */
+	src: url("../fonts/AvenirNextCyr-Demi.woff") format("woff");
+	/* Путь к файлу со шрифтом */
+}
+
 * {
 	font-family: 'avenir';
 }
@@ -121,6 +128,7 @@ a:link {
 			.title {
 				font-size: 120px;
 				font-weight: bold;
+				font-family: 'avenir-bold';
 				color: white;
 				text-align: center;
 			}
@@ -165,16 +173,23 @@ a:link {
 						display: block;
 						margin: 10px auto;
 					}
+					.name {
+						font-size: 20px;
+						font-weight: bold;
+						margin-bottom: 20px;
+					}
 					.description {
-						font-size: 18px;
+						font-size: 12px;
 						width: 240px;
 						line-height: 1.1;
-						max-height: 114px;
+						max-height: 54px;
 						overflow: hidden;
+						margin-bottom: 20px;
 					}
 					.price {
 						font-size: 24px;
 						font-weight: bold;
+						margin-bottom: 20px;
 					}
 					.global {
 						width: 200px;
@@ -275,7 +290,7 @@ a:link {
 			color: white;
 			.title {
 				font-size: 120px;
-				font-weight: bold;
+				font-family: 'avenir-bold';
 			}
 			.sub {
 				font-size: 40px;
@@ -297,7 +312,7 @@ a:link {
 				background-color: #00166a;
 				padding: 50px;
 				.title {
-					font-size: 24px;
+					font-size: 20px;
 					color: white;
 					font-weight: bold;
 					line-height: 1.1;
@@ -335,7 +350,7 @@ a:link {
 						margin: 0 auto;
 					}
 					.name {
-						font-size: 24px;
+						font-size: 20px;
 						color: white;
 						text-align: center;
 						width: 200px;
@@ -371,11 +386,12 @@ a:link {
 				.product-name {
 					font-size: 20px;
 					color: black;
+					font-weight: bold;
 				}
 				.description {
-					font-size: 18px;
+					font-size: 15px;
 					line-height: 1.1;
-					height: 95px;
+					height: 98px;
 					overflow: hidden;
 					margin-top: 15px;
 				}
@@ -418,7 +434,7 @@ a:link {
 				p {
 					margin-top: 50px;
 					width: 395px;
-					font-size: 18px;
+					font-size: 15px;
 					line-height: 1.1;
 				}
 			}
@@ -720,8 +736,9 @@ a:link {
 	color: white;
 	padding-top: 20px;
 	padding-bottom: 40px;
+	padding-left: 100px;
 	.title {
-		font-size: 72px;
+		font-size: 60px;
 		font-weight: bold;
 	}
 	.manager {
@@ -730,7 +747,7 @@ a:link {
 		height: 149px;
 	}
 	.text {
-		font-size: 24px;
+		font-size: 20px;
 		width: 100%;
 		margin-top: 35px;
 		line-height: 1.1;
@@ -805,13 +822,13 @@ a:link {
 				font-weight: bold;
 			}
 			.sub-title {
-				font-size: 20px;
+				font-size: 24px;
 				font-weight: bold;
 				margin-top: 70px;
 				margin-bottom: 35px;
 			}
 			.text {
-				font-size: 20px;
+				font-size: 14px;
 				line-height: 1.1;
 			}
 		}
@@ -869,12 +886,18 @@ a:link {
 				top: 50%;
 				transform: translateY(-50%);
 			}
-			.name {
-				font-size: 18px;
+			.description {
+				font-size: 15px;
 				line-height: 1.1;
 				margin-top: 30px;
-				height: 95px;
+				height: 97px;
 				overflow: hidden;
+			}
+			.name {
+				font-weight: bold;
+				font-size: 20px;
+				margin-top: 10px;
+				margin-bottom: 15px;
 			}
 			.price {
 				font-size: 24px;

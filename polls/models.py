@@ -41,6 +41,8 @@ class Product(models.Model):
     specification2 = models.TextField(blank=True)
     specification3 = models.TextField(blank=True)
 
+    pdf = models.FileField(upload_to='products/%Y/%m/%d', blank=True)
+
     class Meta:
         ordering = ('name', )
         index_together = (('id', 'slug'),)
