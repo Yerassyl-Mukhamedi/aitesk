@@ -35,7 +35,7 @@ class Product(models.Model):
     stock = models.PositiveIntegerField( default = 1)
     created_at = models.DateTimeField(auto_now_add=True, null=True)
     updated_at = models.DateTimeField(auto_now=True, null=True)
-    image = models.ImageField(upload_to='products/%Y/%m/%d', blank=True)
+    image = models.FileField(upload_to='products/%Y/%m/%d', blank=True)
 
     specification1 = models.TextField(blank=True)
     specification2 = models.TextField(blank=True)
