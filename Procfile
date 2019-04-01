@@ -1,1 +1,0 @@
-web: gunicorn MYSITE.wsgi
