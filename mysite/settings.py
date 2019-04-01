@@ -25,7 +25,7 @@ SECRET_KEY = 'g195jkeve$lg76-lfqalhabu4ip!x-jki62a41eo^$e-sr#@fs'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['webdjangosite.herokuapp.com']
 
 
 # Application definition
