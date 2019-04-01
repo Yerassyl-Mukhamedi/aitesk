@@ -37,11 +37,13 @@ class Product(models.Model):
     updated_at = models.DateTimeField(auto_now=True, null=True)
     image = models.FileField(upload_to='products/%Y/%m/%d', blank=True)
 
-    specification1 = models.TextField(blank=True)
-    specification2 = models.TextField(blank=True)
-    specification3 = models.TextField(blank=True)
+    specification1 = models.TextField('Общие характеристики',blank=True)
+    specification2 = models.TextField('Программирование',blank=True)
+    specification3 = models.TextField('Дополнительная функциональность',blank=True)
 
     pdf = models.FileField(upload_to='products/%Y/%m/%d', blank=True)
+
+    usage = models.TextField('Применение', max_length=200, null=True)
 
     class Meta:
         ordering = ('name', )
