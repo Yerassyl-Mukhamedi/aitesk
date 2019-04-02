@@ -130,7 +130,7 @@ def product_detail(request, id, slug):
 
     product = get_object_or_404(Product, id=id, slug=slug, available=True)
     
-    best_offer = Product.objects.all()
+    best_offer = Product.objects.all()[:4]
     menu_list = Product.objects.order_by('?')[:1]
 
     context = {
