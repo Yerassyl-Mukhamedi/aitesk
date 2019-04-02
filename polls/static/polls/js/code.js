@@ -40,4 +40,25 @@ $(document).ready(function() {
 
 		DG.marker([ 43.25, 76.86 ]).addTo(map);
 	});
+
+	$('.modal-open-call').click(function() {
+		$('.modals').addClass('open');
+		$('.call-modal').addClass('active');
+		document.body.style.overflowY = 'hidden';
+	});
+	$('.modal-open-order').click(function() {
+		$('.modals').addClass('open');
+		$('.order-modal').addClass('active');
+		document.body.style.overflowY = 'hidden';
+	});
+	$('.modal-close').click(function() {
+		$('.custom-modal').removeClass('active');
+		$('.modals').removeClass('open');
+		document.body.style.overflowY = 'auto';
+	});
+
+	var node = document.getElementById('product-name');
+	htmlContent = node.innerHTML;
+
+	document.getElementById('id_name1').value = htmlContent;
 });

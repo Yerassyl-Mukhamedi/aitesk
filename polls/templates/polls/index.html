@@ -20,12 +20,16 @@
                     <div class="col-md-6">
                         <div class="right">
 
-                            <form action="/polls/forms/" method="POST" class="form">
+                            <form method="post" class="form">
                                 {% csrf_token %}
+
+
                                 <div class="title">Cетевое и телекоммуникационное оборудование от ведущих мировых производителей</div>
-                                <input type="text" name="phone_number" placeholder="Номер телефона" required>
-                                <button class="global" type="submit">Отправить заявку</button>
+                                {{ form.as_p }}
+                                <button class="global" type="submit" name='order' value="order">Отправить заявку</button>
+                            
                             </form>
+
 
                         </div>
                     </div>
@@ -83,8 +87,7 @@
                                     <div class="col-6">
                                         
                                         <div class="item-content">
-                                            <a href="{{ product.get_absolute_url }}" class="product-name">{{ product.name }}</a>
-                                            <div class="description">{{ product.description }}</div>
+                                            <a href="{{ product.get_absolute_url }}" class="product-name"> <p>{{ product.name }}</p> </a>
                                             <div class="price">{{ product.price }}</div>
                                             <a href="{{ product.get_absolute_url }}"><button class="global">Заказать сейчас</button></a>
                                         </div>
@@ -131,7 +134,7 @@
                             <div class="title">Aitesk ltd предлагает лучшие решения для Вашего бизнеса!</div>
                             <div class="mt-4 row align-items-center">
                                 <div class="text">ТОО "Aitesk Ltd" работает на рынке Казахстана уже многие годы, и специализируются на поставке сетевого и телекоммуникационного оборудования, аксессуаров от ведущих мировых и отечественных производителей на территории Казахстана. </div>
-                                <button class="global">Отправить заявку</button>
+                                <button class="global modal-open-call">Отправить заявку</button>
                             </div>
                         </div>
                     </div>

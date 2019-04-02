@@ -1,0 +1,40 @@
+<div class="modals">
+    
+    <div class="modals-back modal-close"></div>
+
+   <div class="custom-modal order-modal">
+        <img src="/media/img/static/footer-logo.png" class="logo">
+        <div class="title">Сделать заказ</div>
+        <div class="manager">
+            <div class="wrap">
+                <img src="{{ product.image.url }}">
+            </div>
+            <div>
+                <div class="sub">{{ product.name }}</div>
+                <div class="price">{{ product.price }}</div>
+            </div>
+        </div>
+        <form method="post">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <div id="product-name">
+                {{ product.name }}
+            </div>
+            <button class="global" type="submit" name='order' value="order">Отправить заявку</button>
+        </form>
+    </div>
+    
+    <div class="custom-modal call-modal">
+        <img src="/media/img/static/footer-logo.png" class="logo">
+        <div class="title">Заказать звонок менеджера</div>
+        <div class="manager">
+            <img src="/media/img/static/manager.png">
+            <div class="sub">Есть вопросы? Оставьте заявку на звонок менеджера и мы обязательно свяжемся с вами.</div>
+        </div>
+        <form method="post">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button class="global" type="submit" name='call' value="call">Отправить заявку</button>
+        </form>
+    </div>
+</div>

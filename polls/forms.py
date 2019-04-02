@@ -1,6 +1,8 @@
 from django import forms
 
-class ContactForm(forms.Form):
-    name = forms.CharField(max_length=100, widget=forms.TextInput(attrs={'placeholder': 'Ваше имя'}))
-    email = forms.EmailField(widget=forms.TextInput(attrs={'placeholder': 'Номер телефона'}))
-    message = forms.CharField(widget=forms.Textarea(attrs={'placeholder': 'Текст сообщения'}))
+class CallForm(forms.Form):
+    name = forms.CharField(required=False, max_length=100, widget=forms.TextInput(attrs={'placeholder': 'Ваше имя'}))
+    name1 = forms.CharField(required=False, max_length=100, widget=forms.HiddenInput(attrs={'placeholder': 'Ваше имя'}))
+    phone = forms.IntegerField(widget=forms.TextInput(attrs={'placeholder': 'Номер телефона'}))
+    message = forms.CharField(required=False, max_length=100, widget=forms.TextInput(attrs={'placeholder': 'Ваше имя'}))
+    

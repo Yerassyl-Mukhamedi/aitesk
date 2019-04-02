@@ -17,7 +17,7 @@
                     <img src="/media/img/static/manager.png" class="manager">
                     <div>
                         <div class="sub">Есть вопросы? Оставьте заявку на звонок менеджера и мы обязательно свяжемся с вами.</div>
-                        <button class="global">Заказть звонок</button>
+                        <button class="global modal-open-call">Заказaть звонок</button>
                     </div>
                 </div>
             </div>
@@ -89,7 +89,7 @@
         </div>
 
         <div class="offer">
-            <div class="title">Лучие предложения</div>
+            <div class="title">Лучшие предложения</div>
             <div class="row">
 
                 {% if best_offer %}
@@ -100,7 +100,6 @@
                                     <img src="{{ offer.image.url }}">
                                 </div>
                                 <div class="name">{{ offer.name }}</div>
-                                <div class="description">{{ offer.description }}</div>
                                 <div class="price">{{ offer.price }} т</div>
                                 <a href="{{offer.get_absolute_url}}"><button class="global">Заказать сейчас</button></a> 
                             </div>

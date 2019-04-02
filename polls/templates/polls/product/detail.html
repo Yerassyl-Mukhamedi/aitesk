@@ -15,7 +15,7 @@
                         <img src="/media/img/static/manager.png" class="manager">
                         <div>
                             <div class="sub">Есть вопросы? Оставьте заявку на звонок менеджера и мы обязательно свяжемся с вами.</div>
-                            <button class="global">Заказть звонок</button>
+                            <button class="global modal-open-call" type="button">Заказaть звонок</button>
                         </div>
                     </div>
                 </div>
@@ -31,7 +31,7 @@
                             <div class="name">{{ product.name }}</div>
                             <div class="lower">
                                 <div class="price">{{ product.price }} т</div>
-                                <button class="global">Сделать заказ</button>
+                                <button class="global modal-open-order">Сделать заказ</button>
                             </div>
 
                             <div class="description">
@@ -74,13 +74,13 @@
                         {% if product.usage or product.pdf %}
                         <div class="right">
                             <div class="title">Применение</div>
-                                <div class="text">{{ product.usage }}</div>
-                                <a href="{{ product.pdf.url }}" target="_blank" rel="noopener noreferrer" >
-                                    <div class="gid">
-                                        <img src="/media/img/static/pdf.png">
-                                        <p>Технические спецификация</p>
-                                    </div>
-                                </a>
+                                {% if product.usage %}
+                                    <div class="text">{{ product.usage }}</div>
+                                {% endif %}
+
+                                {% if product.pdf %}
+                                    <a href="{{ product.y
+                                {% endif %}
                             </div>
                         {% endif %}
                     </div>
@@ -88,7 +88,7 @@
             </div>
 
         <div class="offer">
-                <div class="title">Лучие предложения</div>
+                <div class="title">Лучшие предложения</div>
                 <div class="row">
 
                         {% if best_offer %}
@@ -100,7 +100,6 @@
                                                 <img src="{{ offer.image.url }}">
                                             </div>
                                             <div class="name">{{ offer.name }}</div>
-                                            <div class="description">{{ offer.description }}</div>
                                             <div class="price">{{ offer.price }} т</div>
                                             <a href="{{offer.get_absolute_url}}"><button class="global">Заказать сейчас</button></a> 
                                         </div>
@@ -112,6 +111,7 @@
             </div>
         </div>
     </div>
+
 
 {% endblock %}
 
