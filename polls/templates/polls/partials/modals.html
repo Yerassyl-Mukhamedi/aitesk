@@ -17,6 +17,7 @@
         <form method="post">
             {% csrf_token %}
             {{ form.as_p }}
+            <div id="product-name">{{ product.name }}</div>
             <div id="product-name">
             </div>
             <button class="global" type="submit" name='order' value="order">Отправить заявку</button>

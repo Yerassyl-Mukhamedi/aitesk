@@ -121,7 +121,7 @@ def product_detail(request, id, slug):
                 sender_phone = form.cleaned_data['phone']
                 sender_email = 'oinf305@gmail.com'
 
-                message = "Заявка на звонок: \n Имя: {0}\n Номер:  {1} \n Название товара:{2}".format(sender_name, sender_phone, sender_name1)
+                message = "Заявка на заказ: \n Имя: {0}\n Номер:  {1} \n Название товара:  {2}".format(sender_name, sender_phone, sender_name1)
                 send_mail('New Enquiry', message, sender_email, ['erasyl490@gmail.com'], fail_silently=False,)
                 return HttpResponse('Спасибо за заказ, с вами свяжутся в ближайшее время!')
     else:

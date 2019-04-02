@@ -59,6 +59,5 @@ $(document).ready(function() {
 
 	var node = document.getElementById('product-name');
 	htmlContent = node.innerHTML;
-
 	document.getElementById('id_name1').value = htmlContent;
 });

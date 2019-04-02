@@ -79,7 +79,9 @@
                                 {% endif %}
 
                                 {% if product.pdf %}
-                                    <a href="{{ product.y
+                                <a href="{{ product.pdf.url}}" rel="noopener noreferrer" target="_blank" class="gid">
+                                    <img src="/media/img/static/pdf.png" class="pdf">
+                                    <p>Технические спецификация </p> </a>
                                 {% endif %}
                             </div>
                         {% endif %}
