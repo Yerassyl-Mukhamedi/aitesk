@@ -65,6 +65,7 @@ a:link {
 		margin-bottom: 50px;
 	}
 }
+
 .header {
 	background-color: @background_color_1;
 	.content {
@@ -294,7 +295,7 @@ a:link {
 		.left {
 			color: white;
 			.title {
-				font-size: 120px;
+				font-size: 117px;
 				font-family: 'avenir-bold';
 			}
 			.sub {
@@ -1164,6 +1165,7 @@ a:link {
 			height: 50px;
 			padding-left: 20px;
 		}
+
 		textarea {
 			width: 500px;
 			border-radius: 8px;
@@ -1279,6 +1281,36 @@ a:link {
 			img {
 				width: 250px;
 			}
+		}
+	}
+}
+
+.messages {
+	width: 100vw;
+	height: 100vh;
+	position: fixed;
+	z-index: 20;
+	top: 0;
+
+	.messages-close {
+		width: 100%;
+		height: 100%;
+		background-color: black;
+		opacity: 0.4;
+	}
+	.content {
+		width: 500px;
+		background-color: #fff;
+		position: absolute;
+		left: 50%;
+		top: 50%;
+		transform: translate(-50%, -50%);
+		border-radius: 25px;
+		padding: 30px 50px;
+		p {
+			font-size: 24px;
+			font-weight: 900;
+			margin-top: 50px;
 		}
 	}
 }

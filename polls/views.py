@@ -1,7 +1,8 @@
 from django.shortcuts import render, get_object_or_404, redirect
 from django.core.mail import EmailMessage, send_mail
 from django.template.loader import get_template
-from django.http import HttpResponse
+from django.contrib import messages
+from django.http import HttpResponse, HttpResponseRedirect
 from .models import Category, Product
 
 from .forms import *
@@ -26,8 +27,10 @@ def index(request, category_slug=None):
                 sender_email = 'oinf305@gmail.com'
                 
                 message = "Заявка на звонок: \n Имя: {0}\n\n Номер:  {1}".format(sender_name, sender_phone)
-                send_mail('New Enquiry', message, sender_email, ['shinconstantine@gmail.com'], fail_silently=False,)
-                return HttpResponse('Спасибо за обращение, с вами свяжутся в ближайшее время!')
+                send_mail('New Enquiry', message, sender_email, ['erasyl490@gmail.com'], fail_silently=False,)
+                messages.success(request, 'message!')
+                return HttpResponseRedirect(request.path_info)
+
         else: 
             form = CallForm(request.POST)
             if form.is_valid():
@@ -37,8 +40,9 @@ def index(request, category_slug=None):
                 sender_email = 'oinf305@gmail.com'
 
                 message = "Заявка на звонок: \n Имя: {0}\n Номер:  {1} \n Название товара:{2}".format(sender_name, sender_phone, sender_name1)
-                send_mail('New Enquiry', message, sender_email, ['shinconstantine@gmail.com'], fail_silently=False,)
-                return HttpResponse('Спасибо за заказ, с вами свяжутся в ближайшее время!')
+                send_mail('New Enquiry', message, sender_email, ['erasyl490@gmail.com'], fail_silently=False,)
+                messages.success(request, 'message!')
+                return HttpResponseRedirect(request.path_info)
     else:
         form = CallForm()
     context = {
@@ -74,8 +78,9 @@ def product_list(request, category_slug):
                 sender_email = 'oinf305@gmail.com'
                 
                 message = "Заявка на звонок: \n Имя: {0}\n\n Номер:  {1}".format(sender_name, sender_phone)
-                send_mail('New Enquiry', message, sender_email, ['shinconstantine@gmail.com'], fail_silently=False,)
-                return HttpResponse('Спасибо за обращение, с вами свяжутся в ближайшее время!')
+                send_mail('New Enquiry', message, sender_email, ['erasyl490@gmail.com'], fail_silently=False,)
+                messages.success(request, 'message!')
+                return HttpResponseRedirect(request.path_info)
         else: 
             form = CallForm(request.POST)
             if form.is_valid():
@@ -85,8 +90,9 @@ def product_list(request, category_slug):
                 sender_email = 'oinf305@gmail.com'
 
                 message = "Заявка на звонок: \n Имя: {0}\n Номер:  {1} \n Название товара:{2}".format(sender_name, sender_phone, sender_name1)
-                send_mail('New Enquiry', message, sender_email, ['shinconstantine@gmail.com'], fail_silently=False,)
-                return HttpResponse('Спасибо за заказ, с вами свяжутся в ближайшее время!')
+                send_mail('New Enquiry', message, sender_email, ['erasyl490@gmail.com'], fail_silently=False,)
+                messages.success(request, 'message!')
+                return HttpResponseRedirect(request.path_info)
     else:
         form = CallForm()
 
@@ -111,8 +117,9 @@ def product_detail(request, id, slug):
                 sender_email = 'oinf305@gmail.com'
                 
                 message = "Заявка на звонок: \n Имя: {0}\n\n Номер:  {1}".format(sender_name, sender_phone)
-                send_mail('New Enquiry', message, sender_email, ['shinconstantine@gmail.com'], fail_silently=False,)
-                return HttpResponse('Спасибо за обращение, с вами свяжутся в ближайшее время!')
+                send_mail('New Enquiry', message, sender_email, ['erasyl490@gmail.com'], fail_silently=False,)
+                messages.success(request, 'message!')
+                return HttpResponseRedirect(request.path_info)
         else: 
             form = CallForm(request.POST)
             if form.is_valid():
@@ -122,8 +129,9 @@ def product_detail(request, id, slug):
                 sender_email = 'oinf305@gmail.com'
 
                 message = "Заявка на заказ: \n Имя: {0}\n Номер:  {1} \n Название товара:  {2}".format(sender_name, sender_phone, sender_name1)
-                send_mail('New Enquiry', message, sender_email, ['shinconstantine@gmail.com'], fail_silently=False,)
-                return HttpResponse('Спасибо за заказ, с вами свяжутся в ближайшее время!')
+                send_mail('New Enquiry', message, sender_email, ['erasyl490@gmail.com'], fail_silently=False,)
+                messages.success(request, 'message!')
+                return HttpResponseRedirect(request.path_info)
     else:
         form = CallForm()
 
@@ -159,8 +167,9 @@ def catalog(request, category_slug=None):
                 sender_email = 'oinf305@gmail.com'
                 
                 message = "Заявка на звонок: \n Имя: {0}\n\n Номер:  {1}".format(sender_name, sender_phone)
-                send_mail('New Enquiry', message, sender_email, ['shinconstantine@gmail.com'], fail_silently=False,)
-                return HttpResponse('Спасибо за обращение, с вами свяжутся в ближайшее время!')
+                send_mail('New Enquiry', message, sender_email, ['erasyl490@gmail.com'], fail_silently=False,)
+                messages.success(request, 'message!')
+                return HttpResponseRedirect(request.path_info)
         else: 
             form = CallForm(request.POST)
             if form.is_valid():
@@ -170,8 +179,9 @@ def catalog(request, category_slug=None):
                 sender_email = 'oinf305@gmail.com'
 
                 message = "Заявка на звонок: \n Имя: {0}\n Номер:  {1} \n Название товара:{2}".format(sender_name, sender_phone, sender_name1)
-                send_mail('New Enquiry', message, sender_email, ['shinconstantine@gmail.com'], fail_silently=False,)
-                return HttpResponse('Спасибо за заказ, с вами свяжутся в ближайшее время!')
+                send_mail('New Enquiry', message, sender_email, ['erasyl490@gmail.com'], fail_silently=False,)
+                messages.success(request, 'message!')
+                return HttpResponseRedirect(request.path_info)
     else:
         form = CallForm()
 
@@ -200,18 +210,21 @@ def contact(request):
                 sender_email = 'oinf305@gmail.com'
                 
                 message = "Заявка на звонок: \n Имя: {0}\n\n Номер:  {1}".format(sender_name, sender_phone)
-                send_mail('New Enquiry', message, sender_email, ['shinconstantine@gmail.com'], fail_silently=False,)
-                return HttpResponse('Спасибо за обращение, с вами свяжутся в ближайшее время!')
+                send_mail('New Enquiry', message, sender_email, ['erasyl490@gmail.com'], fail_silently=False,)
+                messages.success(request, 'message!')
+                return HttpResponseRedirect(request.path_info)
         elif 'contact' in request.POST:
             form = CallForm(request.POST)
             if form.is_valid():
                 sender_name = form.cleaned_data['name']
                 sender_phone = form.cleaned_data['phone']
+                sender_message = form.cleaned_data['message']
                 sender_email = 'oinf305@gmail.com'
                 
-                message = "Заявка на звонок: \n Имя: {0}\n\n Номер:  {1}".format(sender_name, sender_phone)
-                send_mail('New Enquiry', message, sender_email, ['shinconstantine@gmail.com'], fail_silently=False,)
-                return HttpResponse('Спасибо за обращение, с вами свяжутся в ближайшее время!')
+                message = "Заявка на звонок: \n Имя: {0}\n Номер:  {1}\n Сообщение {2}".format(sender_name, sender_phone, sender_message)
+                send_mail('New Enquiry', message, sender_email, ['erasyl490@gmail.com'], fail_silently=False,)
+                messages.success(request, 'message!')
+                return HttpResponseRedirect(request.path_info)
         # else: 
         #     form = CallForm(request.POST)
         #     if form.is_valid():
@@ -222,8 +235,9 @@ def contact(request):
         #         sender_email = 'oinf305@gmail.com'
 
         #         message = "Заявка на звонок: \n Имя: {0}\n Номер:  {1} \n Название товара:{2}{3}".format(sender_name, sender_phone, sender_name1, sender_message)
-        #         send_mail('New Enquiry', message, sender_email, ['shinconstantine@gmail.com'], fail_silently=False,)
-        #         return HttpResponse('Спасибо за заказ, с вами свяжутся в ближайшее время!')
+        #         send_mail('New Enquiry', message, sender_email, ['erasyl490@gmail.com'], fail_silently=False,)
+        #         messages.success(request, 'message!')
+                return HttpResponseRedirect(request.path_info)
     else:
         form = CallForm()
 
@@ -242,8 +256,9 @@ def about(request):
                 sender_email = 'oinf305@gmail.com'
                 
                 message = "Заявка на звонок: \n Имя: {0}\n\n Номер:  {1}".format(sender_name, sender_phone)
-                send_mail('New Enquiry', message, sender_email, ['shinconstantine@gmail.com'], fail_silently=False,)
-                return HttpResponse('Спасибо за обращение, с вами свяжутся в ближайшее время!')
+                send_mail('New Enquiry', message, sender_email, ['erasyl490@gmail.com'], fail_silently=False,)
+                messages.success(request, 'message!')
+                return HttpResponseRedirect(request.path_info)
         else: 
             form = CallForm(request.POST)
             if form.is_valid():
@@ -253,8 +268,9 @@ def about(request):
                 sender_email = 'oinf305@gmail.com'
 
                 message = "Заявка на звонок: \n Имя: {0}\n Номер:  {1} \n Название товара:{2}".format(sender_name, sender_phone, sender_name1)
-                send_mail('New Enquiry', message, sender_email, ['shinconstantine@gmail.com'], fail_silently=False,)
-                return HttpResponse('Спасибо за заказ, с вами свяжутся в ближайшее время!')
+                send_mail('New Enquiry', message, sender_email, ['erasyl490@gmail.com'], fail_silently=False,)
+                messages.success(request, 'message!')
+                return HttpResponseRedirect(request.path_info)
     else:
         form = CallForm()
     context = {

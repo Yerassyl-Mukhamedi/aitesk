@@ -57,6 +57,9 @@ $(document).ready(function() {
 		document.body.style.overflowY = 'auto';
 	});
 
+	$('.messages').click(function() {
+		$('.messages').css('display', 'none');
+	});
 	var node = document.getElementById('product-name');
 	htmlContent = node.innerHTML;
 	document.getElementById('id_name1').value = htmlContent;
