@@ -37,6 +37,7 @@ class Product(models.Model):
     updated_at = models.DateTimeField(auto_now=True, null=True)
     image = models.FileField(upload_to='products/%Y/%m/%d', blank=True)
 
+    garant = models.TextField('Гарантия', blank=True)
     specification1 = models.TextField('Общие характеристики',blank=True)
     specification2 = models.TextField('Программирование',blank=True)
     specification3 = models.TextField('Дополнительная функциональность',blank=True)

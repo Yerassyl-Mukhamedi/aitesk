@@ -10,7 +10,7 @@
 @font-face {
 	font-family: 'avenir-bold';
 	/* Имя шрифта */
-	src: url("../fonts/AvenirNextCyr-Demi.woff") format("woff");
+	src: url("../fonts/Avenir-Heavy.woff") format("woff");
 	/* Путь к файлу со шрифтом */
 }
 
@@ -49,10 +49,15 @@ a:link {
 }
 .our {
 	margin-top: 220px;
+	.bold-title {
+		font-size: 28px;
+		font-weight: bold;
+		margin-bottom: 20px;
+	}
 	.title {
-		margin-top: 0px;
+		margin-top: 100px !important;
 		margin-bottom: 30px;
-		font-size: 24px;
+		font-size: 24px !important;
 	}
 	.list {
 		display: flex;
@@ -421,7 +426,7 @@ a:link {
 				.row {
 					.col-6 {
 						&:first-child {
-							border: 1px solid #979797;
+							border: 1px solid #f2f2f2;
 						}
 					}
 				}
@@ -546,7 +551,7 @@ a:link {
 		margin-bottom: 30px;
 		overflow: hidden;
 		.name {
-			font-size: 36px;
+			font-size: 24px;
 			line-height: 1.1;
 			color: white;
 			font-weight: bold;
@@ -618,7 +623,7 @@ a:link {
 	background-color: #001b84;
 	.top {
 		.title {
-			font-size: 72px;
+			font-size: 48px;
 			font-weight: bold;
 			color: white;
 			padding-top: 40px;
@@ -706,7 +711,7 @@ a:link {
 		}
 		.item {
 			width: 100%;
-			border: 1px solid #979797;
+			border: 1px solid #f2f2f2;
 			padding-bottom: 20px;
 			margin-top: 30px;
 
@@ -728,12 +733,14 @@ a:link {
 				}
 			}
 			.description {
-				font-size: 16px;
+				font-size: 20px;
 				line-height: 1.1;
-				height: 103px;
+				height: 92px;
+				word-wrap: break-word;
 				overflow: hidden;
 				width: 90%;
 				margin: 10px auto;
+				font-weight: bold;
 			}
 			.price {
 				font-weight: bold;
@@ -773,6 +780,11 @@ a:link {
 		width: 100%;
 		margin-top: 35px;
 		line-height: 1.1;
+		display: flex;
+		a {
+			color: white;
+			margin-right: 20px;
+		}
 	}
 	.sub {
 		width: 300px;
@@ -791,17 +803,19 @@ a:link {
 		margin-bottom: 40px;
 		.left {
 			.name {
-				font-size: 36px;
+				font-size: 24px;
 				padding-bottom: 15px;
-				border-bottom: 1px solid #979797;
-				margin-bottom: 35px;
+				font-weight: bold;
+			}
+			.definer {
+				margin-bottom: 20px;
 			}
 			.lower {
 				display: flex;
 				justify-content: space-between;
 				.price {
 					font-size: 40px;
-					font-weight: bold;
+					font-weight: 900;
 				}
 				.global {
 					width: 265px;
@@ -821,10 +835,24 @@ a:link {
 					padding-right: 80px;
 				}
 			}
+			.static {
+				margin-top: 45px;
+				padding: 30px;
+				width: 520px;
+				background-color: #eeeeee;
+				.title {
+					font-size: 16px;
+					font-weight: bold;
+				}
+				.text {
+					margin-top: 20px;
+					font-size: 14px;
+				}
+			}
 		}
 		.right {
 			.wrap {
-				border: 1px solid #979797;
+				border: 1px solid #f2f2f2;
 				width: 100%;
 				max-height: 100%;
 				img {
@@ -836,7 +864,7 @@ a:link {
 	}
 	.mid-content {
 		padding-bottom: 50px;
-		border-bottom: 1px solid #979797;
+		border-bottom: 1px solid #f2f2f2;
 		margin-bottom: 50px;
 		.left {
 			.title {
@@ -844,7 +872,7 @@ a:link {
 				font-weight: bold;
 			}
 			.sub-title {
-				font-size: 24px;
+				font-size: 20px;
 				font-weight: bold;
 				margin-top: 70px;
 				margin-bottom: 35px;
@@ -855,6 +883,7 @@ a:link {
 			}
 		}
 		.right {
+			margin-top: 100px;
 			width: 100%;
 			padding: 70px;
 			padding-top: 30px;
@@ -900,7 +929,7 @@ a:link {
 			.wrap {
 				width: 100%;
 				height: 240px;
-				border: 1px solid #997799;
+				border: 1px solid #f2f2f2;
 				position: relative;
 			}
 			img {
@@ -920,7 +949,6 @@ a:link {
 				overflow: hidden;
 			}
 			.name {
-				font-weight: bold;
 				font-size: 20px;
 				margin-top: 10px;
 				margin-bottom: 15px;
